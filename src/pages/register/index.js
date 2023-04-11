@@ -150,12 +150,12 @@ const Register = () => {
             </svg>
             <Box sx={{ my: 6 }}>
               <Typography sx={{ mb: 1.5, fontWeight: 500, fontSize: '1.625rem', lineHeight: 1.385 }}>
-                Adventure starts here 🚀
+                El cambio empieza aquí 🚀
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>Make your app management easy and fun!</Typography>
+              <Typography sx={{ color: 'text.secondary' }}>Registrese para disfrutar de mas!</Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
-              <TextField autoFocus fullWidth sx={{ mb: 4 }} label='Username' placeholder='johndoe' />
+              <TextField autoFocus fullWidth sx={{ mb: 4 }} label='Username' placeholder='Carlos Erik' />
               <TextField fullWidth label='Email' sx={{ mb: 4 }} placeholder='user@email.com' />
               <FormControl fullWidth>
                 <InputLabel htmlFor='auth-login-v2-password'>Password</InputLabel>
@@ -192,13 +192,13 @@ const Register = () => {
                 }
               />
               <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                Sign up
+                Ya tienes cuenta?
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                 <Typography sx={{ color: 'text.secondary', mr: 2 }}>Already have an account?</Typography>
                 <Typography variant='body2'>
                   <LinkStyled href='/login' sx={{ fontSize: '1rem' }}>
-                    Sign in instead
+                    Inicia sesion aqui
                   </LinkStyled>
                 </Typography>
               </Box>
