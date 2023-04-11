@@ -1,21 +1,11 @@
+import constants from 'src/@core/utils/constants'
+import routes from 'src/@core/utils/routes'
 const navigation = () => {
   return [
     {
-      title: 'Home',
-      path: '/home',
-      icon: 'tabler:smart-home',
-    },
-    {
-      title: 'Second Page',
-      path: '/second-page',
-      icon: 'tabler:mail',
-    },
-    {
-      path: '/acl',
-      action: 'read',
-      subject: 'acl-page',
-      title: 'Access Control',
-      icon: 'tabler:shield',
+      title: routes.home.name,
+      path: routes.home.path,
+      icon: 'tabler:smart-home'
     }
   ]
 }
