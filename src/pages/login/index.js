@@ -40,11 +40,12 @@ import themeConfig from 'src/configs/themeConfig'
 
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
-
+import AppBarContent from 'src/layouts/components/vertical/AppBarContent'
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 import { useRouter } from 'next/router'
 import routes from 'src/@core/utils/routes'
+import { Card } from '@mui/material'
 
 // ** Styled Components
 const LoginIllustration = styled('img')(({ theme }) => ({
@@ -95,6 +96,28 @@ const defaultValues = {
   password: 'admin',
   email: 'admin@vuexy.com'
 }
+
+const LogoSaludDigna = styled('img')(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    height: 20,
+    width: 'auto'
+  },
+  [theme.breakpoints.up('sm')]: {
+    height: 50,
+    width: 'auto'
+  }
+}))
+
+const LogoAplicacion = styled('img')(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    height: 40,
+    width: 'auto'
+  },
+  [theme.breakpoints.up('sm')]: {
+    height: 50,
+    width: 'auto'
+  }
+}))
 
 const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState(true)
@@ -241,21 +264,6 @@ const LoginPage = () => {
                   control={<Checkbox checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} />}
                 />
                 <LinkStyled href='/forgot-password'>Olvidaste tu contraseña?</LinkStyled>
-              </Box>
-              <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                Iniciar
-              </Button>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mb: 4 }}>¿Nuevo en la plataforma?</Typography>
-                <Button
-                  variant='outlined'
-                  fullWidth
-                  onClick={() => {
-                    router.push(routes.register.path)
-                  }}
-                >
-                  Registrarse
-                </Button>
               </Box>
             </form>
           </Box>
