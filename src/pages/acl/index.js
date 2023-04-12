@@ -19,20 +19,20 @@ const ACLPage = () => {
     <Grid container spacing={6}>
       <Grid item md={6} xs={12}>
         <Card>
-          <CardHeader title='Common' />
+          <CardHeader title='Hola' />
           <CardContent>
-            <Typography sx={{ mb: 4 }}>No ability is required to view this card</Typography>
-            <Typography sx={{ color: 'primary.main' }}>This card is visible to 'user' and 'admin' both</Typography>
+            <Typography sx={{ mb: 4 }}>Carta publica</Typography>
+            <Typography sx={{ color: 'primary.main' }}>TEsta tarjeta es visible para todos</Typography>
           </CardContent>
         </Card>
       </Grid>
       {ability?.can('read', 'analytics') ? (
         <Grid item md={6} xs={12}>
           <Card>
-            <CardHeader title='Analytics' />
+            <CardHeader title='como estas' />
             <CardContent>
-              <Typography sx={{ mb: 4 }}>User with 'Analytics' subject's 'Read' ability can view this card</Typography>
-              <Typography sx={{ color: 'error.main' }}>This card is visible to 'admin' only</Typography>
+              <Typography sx={{ mb: 4 }}>Carta privada</Typography>
+              <Typography sx={{ color: 'error.main' }}>Solo para usuarios con sesion</Typography>
             </CardContent>
           </Card>
         </Grid>
