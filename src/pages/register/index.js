@@ -98,7 +98,7 @@ const Register = () => {
             alignItems: 'center',
             borderRadius: '20px',
             justifyContent: 'center',
-            backgroundColor: 'customColors.bodyBg',
+            backgroundColor: 'white',
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >
@@ -127,7 +127,13 @@ const Register = () => {
               <Typography sx={{ color: 'text.secondary' }}>Registrese para disfrutar de mas!</Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
-              <TextField autoFocus fullWidth sx={{ mb: 4 }} label='Username' placeholder='Carlos Erik' />
+              <TextField
+                autoFocus
+                fullWidth
+                sx={{ mb: 4 }}
+                label='Username'
+                placeholder='Carlos Cigarroa o Erik Aban'
+              />
               <TextField fullWidth label='Email' sx={{ mb: 4 }} placeholder='user@email.com' />
               <FormControl fullWidth>
                 <InputLabel htmlFor='auth-login-v2-password'>Password</InputLabel>
@@ -167,10 +173,10 @@ const Register = () => {
                 Log in
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mr: 2 }}>Ya tienes cuenta?</Typography>
+                <Typography sx={{ color: 'text.secondary', mr: 2 }}>Ya tienes una cuenta?</Typography>
                 <Typography variant='body2'>
                   <LinkStyled href='/login' sx={{ fontSize: '1rem' }}>
-                    Inicia sesion aqui
+                    Inicia sesión aquí
                   </LinkStyled>
                 </Typography>
               </Box>

@@ -35,7 +35,6 @@ const FallbackSpinner = ({ sx }) => {
         ...sx
       }}
     >
-      <img src='public/images/favicon.gif' alt='Mi imagen' width={300} height={200} />
       <CircularProgress disableShrink sx={{ mt: 6 }} />
     </Box>
   )

@@ -141,7 +141,7 @@ const LoginPage = () => {
             alignItems: 'center',
             borderRadius: '20px',
             justifyContent: 'center',
-            backgroundColor: 'customColors.bodyBg',
+            backgroundColor: 'white',
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >
@@ -160,12 +160,20 @@ const LoginPage = () => {
           }}
         >
           <Box sx={{ width: '100%', maxWidth: 400 }}>
+<<<<<<< HEAD
             <Box sx={{ my: 6, textAlign: 'center' }}>
               <Typography sx={{ mb: 1.5, fontWeight: 500, fontSize: '1.625rem', lineHeight: 1.385 }}>
                 {`${themeConfig.templateName}`}
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>Iniciar Sesión</Typography>
               <Icon icon='mdi:user-circle' fontSize='10em' />
+=======
+            <Box sx={{ my: 6 }}>
+              <Typography sx={{ mb: 1.5, fontWeight: 500, fontSize: '1.625rem', lineHeight: 1.385 }}>
+                {`Bienvenidos a ${themeConfig.templateName}! 👋🏻`}
+              </Typography>
+              <Typography sx={{ color: 'text.secondary' }}>Inicia sesion para acceder a más opciones</Typography>
+>>>>>>> 342f127eb3a83ffd88044537f16fa5af09e3e31a
             </Box>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <FormControl fullWidth sx={{ mb: 4 }}>
@@ -240,7 +248,7 @@ const LoginPage = () => {
                 <LinkStyled href='/forgot-password'>Olvidaste tu contraseña?</LinkStyled>
               </Box>
               <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                Login
+                Iniciar
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                 <Typography sx={{ color: 'text.secondary', mr: 2 }}>Nuevo en la plataforma?</Typography>

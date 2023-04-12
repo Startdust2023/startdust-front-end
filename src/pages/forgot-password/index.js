@@ -72,7 +72,7 @@ const ForgotPassword = () => {
             alignItems: 'center',
             borderRadius: '20px',
             justifyContent: 'center',
-            backgroundColor: 'customColors.bodyBg',
+            backgroundColor: 'white',
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >
@@ -99,18 +99,18 @@ const ForgotPassword = () => {
                 Olvidaste tu contraseña? 🔒
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>
-                Ingresa tu contraseña y sigue los pasos para restaurar tu contraseña
+                Ingresa tu email y sigue los pasos para restaurar tu contraseña
               </Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
               <TextField autoFocus type='email' label='Email' sx={{ display: 'flex', mb: 4 }} />
               <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                Enviar para seguir
+                Restaurar Contraseña
               </Button>
               <Typography sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', '& svg': { mr: 1 } }}>
                 <LinkStyled href='/login'>
                   <Icon fontSize='1.25rem' icon='tabler:chevron-left' />
-                  <span>Vuelve al principio</span>
+                  <span>Volver al login</span>
                 </LinkStyled>
               </Typography>
             </form>
