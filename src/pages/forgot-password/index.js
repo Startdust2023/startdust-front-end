@@ -72,7 +72,6 @@ const ForgotPassword = () => {
             alignItems: 'center',
             borderRadius: '20px',
             justifyContent: 'center',
-            backgroundColor: 'white',
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >

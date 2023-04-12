@@ -111,6 +111,7 @@ const LoginPage = () => {
   const { skin } = settings
 
   const router = useRouter()
+
   const {
     control,
     setError,
@@ -144,7 +145,6 @@ const LoginPage = () => {
             alignItems: 'center',
             borderRadius: '20px',
             justifyContent: 'center',
-            backgroundColor: 'white',
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >
