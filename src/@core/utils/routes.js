@@ -1,6 +1,6 @@
 const routes = {
   home: {
-    path: '/',
+    path: '/home',
     name: 'Inicio'
   }
 }

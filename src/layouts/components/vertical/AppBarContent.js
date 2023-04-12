@@ -9,6 +9,30 @@ import Icon from 'src/@core/components/icon'
 import ModeToggler from 'src/@core/layouts/components/shared-components/ModeToggler'
 import UserDropdown from 'src/@core/layouts/components/shared-components/UserDropdown'
 
+import { styled, useTheme } from '@mui/material/styles'
+
+const LogoSaludDigna = styled('img')(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    height: 20,
+    width: 'auto'
+  },
+  [theme.breakpoints.up('sm')]: {
+    height: 50,
+    width: 'auto'
+  }
+}))
+
+const LogoAplicacion = styled('img')(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    height: 40,
+    width: 'auto'
+  },
+  [theme.breakpoints.up('sm')]: {
+    height: 50,
+    width: 'auto'
+  }
+}))
+
 const AppBarContent = props => {
   // ** Props
   const { hidden, settings, saveSettings, toggleNavVisibility } = props
@@ -21,8 +45,12 @@ const AppBarContent = props => {
             <Icon fontSize='1.5rem' icon='tabler:menu-2' />
           </IconButton>
         ) : null}
-
         <ModeToggler settings={settings} saveSettings={saveSettings} />
+      </Box>
+      <Box sx={{ alignItems: 'center', display: 'flex' }}>
+        <LogoSaludDigna src={'/images/salud_digna_logo.png'} />
+        &nbsp;&nbsp;
+        <LogoAplicacion src={'/images/CoraCierre.png'} />
       </Box>
       <Box className='actions-right' sx={{ display: 'flex', alignItems: 'center' }}>
         <UserDropdown settings={settings} />
