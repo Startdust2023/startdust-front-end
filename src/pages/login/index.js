@@ -43,6 +43,8 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
+import { useRouter } from 'next/router'
+import routes from 'src/@core/utils/routes'
 
 // ** Styled Components
 const LoginIllustration = styled('img')(({ theme }) => ({
@@ -85,8 +87,8 @@ const FormControlLabel = styled(MuiFormControlLabel)(({ theme }) => ({
 }))
 
 const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().min(5).required()
+  email: yup.string().email('Tiene que ser un email válido').required('El correo es requerido'),
+  password: yup.string().min(5, 'La contraseña debe de tener 5 caracteres').required('La contraseña es requerida')
 })
 
 const defaultValues = {
@@ -108,6 +110,7 @@ const LoginPage = () => {
   // ** Vars
   const { skin } = settings
 
+  const router = useRouter()
   const {
     control,
     setError,
@@ -124,7 +127,7 @@ const LoginPage = () => {
     auth.login({ email, password, rememberMe }, () => {
       setError('email', {
         type: 'manual',
-        message: 'Email or Password is invalid'
+        message: 'Correo o contraseña inválida'
       })
     })
   }
@@ -152,7 +155,7 @@ const LoginPage = () => {
       <RightWrapper>
         <Box
           sx={{
-            p: [6, 12],
+            p: 6,
             height: '100%',
             display: 'flex',
             alignItems: 'center',
@@ -160,12 +163,12 @@ const LoginPage = () => {
           }}
         >
           <Box sx={{ width: '100%', maxWidth: 400 }}>
-            <Box sx={{ my: 6, textAlign: 'center' }}>
-              <Typography sx={{ mb: 1.5, fontWeight: 500, fontSize: '1.625rem', lineHeight: 1.385 }}>
+            <Box sx={{ my: 6, textAlign: 'center', color: 'primary.main' }}>
+              <Typography sx={{ mb: 1.5, fontWeight: 'bold', fontSize: '1.625rem', lineHeight: 1.385 }}>
                 {`${themeConfig.templateName}`}
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>Iniciar Sesión</Typography>
-              <Icon icon='mdi:user-circle' fontSize='10em' />
+              <Icon icon='mdi:user-circle' fontSize='7em' />
             </Box>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <FormControl fullWidth sx={{ mb: 4 }}>
@@ -176,7 +179,7 @@ const LoginPage = () => {
                   render={({ field: { value, onChange, onBlur } }) => (
                     <TextField
                       autoFocus
-                      label='Email'
+                      label='Correo'
                       value={value}
                       onBlur={onBlur}
                       onChange={onChange}
@@ -189,7 +192,7 @@ const LoginPage = () => {
               </FormControl>
               <FormControl fullWidth sx={{ mb: 1.5 }}>
                 <InputLabel htmlFor='auth-login-v2-password' error={Boolean(errors.password)}>
-                  Password
+                  Contraseña
                 </InputLabel>
                 <Controller
                   name='password'
@@ -199,7 +202,7 @@ const LoginPage = () => {
                     <OutlinedInput
                       value={value}
                       onBlur={onBlur}
-                      label='Password'
+                      label='Contraseña'
                       onChange={onChange}
                       id='auth-login-v2-password'
                       error={Boolean(errors.password)}
@@ -243,12 +246,16 @@ const LoginPage = () => {
                 Iniciar
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mr: 2 }}>Nuevo en la plataforma?</Typography>
-                <Typography variant='body2'>
-                  <LinkStyled href='/register' sx={{ fontSize: '1rem' }}>
-                    Crea una cuenta
-                  </LinkStyled>
-                </Typography>
+                <Typography sx={{ color: 'text.secondary', mb: 4 }}>¿Nuevo en la plataforma?</Typography>
+                <Button
+                  variant='outlined'
+                  fullWidth
+                  onClick={() => {
+                    router.push(routes.register.path)
+                  }}
+                >
+                  Registrarse
+                </Button>
               </Box>
             </form>
           </Box>
