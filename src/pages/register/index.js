@@ -185,7 +185,7 @@ const Register = () => {
                 label={
                   <>
                     <Typography variant='body2' component='span'>
-                      I agree to{' '}
+                      Estoy de acuerdo con la{' '}
                     </Typography>
                     <LinkStyled href='/' onClick={e => e.preventDefault()}>
                       Política de privacidad y términos
