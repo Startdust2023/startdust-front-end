@@ -29,7 +29,9 @@ import CardStatisticsPuntuacion from 'src/views/pages/history/CardStatisticsPunt
 const History = () => {
   return (
     <Grid container spacing={6}>
-      <Grid item xs={12}></Grid>
+      <Grid item xs={12}>
+        <CustomRoutesView routes={[routes.home, routes.history]} />
+      </Grid>
       <Grid item xs={12}>
         <Card>
           <Grid container spacing={4} justifyContent={'space-between'} sx={{ p: 4 }}>

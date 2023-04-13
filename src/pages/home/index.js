@@ -93,7 +93,14 @@ const Home = () => {
           <CardButtom icon={'lucide:globe'} label={'Foro'} color={colors.green} onClick={() => {}} />
         </Grid>
         <Grid item xs={12} sm={4} md={3}>
-          <CardButtom icon={'lucide:bike'} label={'Hagamos Ejercicio'} color={colors.blue} onClick={() => {}} />
+          <CardButtom
+            icon={'lucide:bike'}
+            label={'Hagamos Ejercicio'}
+            color={colors.blue}
+            onClick={() => {
+              router.push(routes.workout.path)
+            }}
+          />
         </Grid>
       </Grid>
       <ViewChefBot open={openView} toggle={handleView} />

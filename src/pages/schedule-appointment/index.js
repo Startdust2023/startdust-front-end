@@ -2,7 +2,7 @@
 import Card from '@mui/material/Card'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import React from 'react'
 import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
@@ -37,10 +37,15 @@ const ScheduleAppointment = () => {
   // Estado y municipio seleccionados
   const [estado, setEstado] = useState('')
   const [municipio, setMunicipio] = useState('')
-  const [collapse, setCollapse] = useState(false)
+  const [collapse, setCollapse] = useState([
+    clinicas.map(item => {
+      const newValue = { [item.name]: false }
+      return newValue
+    })
+  ])
 
-  const handleClick = () => {
-    setCollapse(!collapse)
+  const handleClick = item => {
+    setCollapse({ ...collapse, [item.name]: !collapse[item.name] })
   }
 
   // Manejar cambios en el selector de estado
@@ -82,15 +87,28 @@ const ScheduleAppointment = () => {
               alignItems: 'center',
               justifyContent: 'space-between'
             }}
-            onClick={handleClick}
+            onClick={() => {
+              handleClick(item)
+            }}
           >
-            <Button onClick={handleClick}>Agendar Cita</Button>
-            <IconButton size='small' onClick={handleClick}>
-              <Icon fontSize='1.875rem' icon={collapse ? 'tabler:chevron-up' : 'tabler:chevron-down'} />
+            <Button
+              onClick={() => {
+                handleClick(item)
+              }}
+            >
+              Agendar Cita
+            </Button>
+            <IconButton
+              size='small'
+              onClick={() => {
+                handleClick(item)
+              }}
+            >
+              <Icon fontSize='1.875rem' icon={collapse[item.name] ? 'tabler:chevron-up' : 'tabler:chevron-down'} />
             </IconButton>
           </Box>
         </CardActions>
-        <Collapse in={collapse}>
+        <Collapse in={collapse[item.name]}>
           <Divider sx={{ m: '0 !important' }} />
           <CardContent>
             <Box sx={{ textAlign: 'center' }}>

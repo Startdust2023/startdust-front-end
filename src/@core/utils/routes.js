@@ -26,6 +26,10 @@ const routes = {
   history: {
     path: '/history',
     name: 'Mi Historial'
+  },
+  workout: {
+    path: '/workout',
+    name: 'Hagamos Ejercicio'
   }
 }
 
