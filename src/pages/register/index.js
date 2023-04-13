@@ -137,7 +137,7 @@ const Register = () => {
               <TextField fullWidth label='Email' sx={{ mb: 4 }} placeholder='user@email.com' />
               <FormControl fullWidth>
                 <InputLabel htmlFor='auth-login-v2-password' autoFocus sx={{ mb: 4 }}>
-                  Password
+                  Contraseña
                 </InputLabel>
                 <OutlinedInput
                   sx={{ mb: 4 }}
@@ -185,16 +185,16 @@ const Register = () => {
                 label={
                   <>
                     <Typography variant='body2' component='span'>
-                      I agree to{' '}
+                      Estoy de acuerdo con la{' '}
                     </Typography>
                     <LinkStyled href='/' onClick={e => e.preventDefault()}>
-                      privacy policy & terms
+                      Política de privacidad y términos
                     </LinkStyled>
                   </>
                 }
               />
               <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                Log in
+                Iniciar sesión
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
                 <Typography sx={{ color: 'text.secondary', mr: 2 }}>Ya tienes una cuenta?</Typography>
@@ -212,7 +212,7 @@ const Register = () => {
                   my: theme => `${theme.spacing(6)} !important`
                 }}
               >
-                or
+                o
               </Divider>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <IconButton href='/' component={Link} sx={{ color: '#497ce2' }} onClick={e => e.preventDefault()}>
