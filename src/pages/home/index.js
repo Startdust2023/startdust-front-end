@@ -18,7 +18,7 @@ const colors = {
   blue2: '#2961b6'
 }
 
-const CardButtom = ({ icon, label, color }) => {
+const CardButtom = ({ icon, label, color, onClick }) => {
   return (
     <Button
       key={label}
@@ -28,10 +28,12 @@ const CardButtom = ({ icon, label, color }) => {
         alignItems: 'center',
         display: 'flex',
         backgroundColor: color,
-        justifyContent: 'space-around',
-        p: 4,
+        justifyContent: 'space-between',
+        py: 4,
+        px: 10,
         height: { xs: 50, sx: 70 }
       }}
+      onClick={onClick}
     >
       <Icon icon={icon} fontSize={'1.8em'} />
       <Box sx={{ display: 'flex', mr: 2 }}>{label}</Box>
@@ -41,27 +43,40 @@ const CardButtom = ({ icon, label, color }) => {
 const Home = () => {
   return (
     <Grid container spacing={6} justifyContent={'space-between'}>
-      <Grid item xs={12} container sx={{ display: 'flex', justifyContent: 'center', mt: { xs: 15, sm: 0 } }}>
+      <Grid item xs={12}>
+        <CustomRoutesView routes={[routes.home]} />
+      </Grid>
+      <Grid item xs={12} container sx={{ display: 'flex', justifyContent: 'center' }}>
         <Card sx={{ minHeight: { xs: 200, sm: 220 }, width: { xs: '100%', sm: 400 } }}>
           <SwiperControls />
         </Card>
       </Grid>
-      <Grid item xs={12} sm={0} sx={{ height: { xs: 150, sm: 0 } }}></Grid>
+      <Grid item xs={12} sm={0} sx={{ height: { xs: 100, sm: 0 } }}></Grid>
       <Grid item container spacing={4} xs={12}>
-        <Grid item xs={6} sm={4} md={3}>
-          <CardButtom icon={'lucide:clipboard-signature'} label={'Mi Historial'} color={colors.orage} />
+        <Grid item xs={12} sm={4} md={3}>
+          <CardButtom
+            icon={'lucide:clipboard-signature'}
+            label={'Mi Historial'}
+            color={colors.orage}
+            onClick={() => {}}
+          />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          <CardButtom icon={'lucide:book-open-check'} label={'Agendar Consulta'} color={colors.blue} />
+        <Grid item xs={12} sm={4} md={3}>
+          <CardButtom
+            icon={'lucide:book-open-check'}
+            label={'Agendar Consulta'}
+            color={colors.blue}
+            onClick={() => {}}
+          />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          <CardButtom icon={'lucide:chef-hat'} label={'ChefBot'} color={colors.green} />
+        <Grid item xs={12} sm={4} md={3}>
+          <CardButtom icon={'lucide:chef-hat'} label={'ChefBot'} color={colors.green} onClick={() => {}} />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          <CardButtom icon={'lucide:globe'} label={'Foro'} color={colors.orage} />
+        <Grid item xs={12} sm={4} md={3}>
+          <CardButtom icon={'lucide:globe'} label={'Foro'} color={colors.orage} onClick={() => {}} />
         </Grid>
-        <Grid item xs={6} sm={4} md={3}>
-          <CardButtom icon={'lucide:bike'} label={'Hagamos Ejercicio'} color={colors.blue2} />
+        <Grid item xs={12} sm={4} md={3}>
+          <CardButtom icon={'lucide:bike'} label={'Hagamos Ejercicio'} color={colors.blue2} onClick={() => {}} />
         </Grid>
       </Grid>
     </Grid>

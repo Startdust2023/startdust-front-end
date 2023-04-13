@@ -10,6 +10,10 @@ const routes = {
   login: {
     path: '/login',
     name: 'Iniciar Sesión'
+  },
+  generateRecipe: {
+    path: '/generate-recipe',
+    name: 'Generar Receta'
   }
 }
 

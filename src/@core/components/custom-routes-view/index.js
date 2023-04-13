@@ -8,7 +8,7 @@ export const CustomRoutesView = ({ routes }) => {
 
   const item = (route, isLast, key) => {
     return (
-      <Box key={key + route.name}>
+      <Box key={key + route.name} sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography
           variant='h6'
           onClick={() => {
@@ -24,22 +24,14 @@ export const CustomRoutesView = ({ routes }) => {
         >
           {route.name}
         </Typography>
+        {!isLast ? <Icon icon={'material-symbols:arrow-right'} fontSize={'1em'} /> : null}
       </Box>
     )
   }
   return (
-    <Box sx={{ fontSize: '2.5em', display: 'flex', my: 2, ml: 4 }}>
+    <Box sx={{ fontSize: '2.5em', alignItems: 'center', display: 'flex', my: 2, ml: 4 }}>
       {routes.map((value, index) => {
-        return (
-          <>
-            {item(value, routes.length === index + 1, index)}
-            {routes.length !== index + 1 ? (
-              <Typography sx={{ color: 'primary.main' }}>
-                <Icon icon={'material-symbols:arrow-right'} />
-              </Typography>
-            ) : null}
-          </>
-        )
+        return <>{item(value, routes.length === index + 1, index)}</>
       })}
     </Box>
   )
