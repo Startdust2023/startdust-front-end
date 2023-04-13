@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Select from '@mui/material/Select'
-import { Typography } from '@mui/material'
+import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import Box from '@mui/material/Box'
+import FormControl from '@mui/material/FormControl'
 
 const EstadoMunicipioSelector = () => {
   // Datos de estados y municipios de la República Mexicana
@@ -316,20 +317,33 @@ const EstadoMunicipioSelector = () => {
   }
 
   return (
-    <div>
-      <Typography>Estado:</Typography>
-      <Select id='estado' value={estado} onChange={handleEstadoChange}>
-        <MenuItem value=''>Selecciona un estado</MenuItem>
-        {estados.map(estado => (
-          <MenuItem key={estado.id} value={estado.id}>
-            {estado.nombre}
-          </MenuItem>
-        ))}
-      </Select>
-      <br />
-      <Box sx={{ display: 'flex' }}>
-        <Typography>Municipio:</Typography>
-        <Select id='municipio' value={municipio} onChange={handleMunicipioChange}>
+    <Box sx={{ display: 'table-cell' }}>
+      <Box sx={{ mb: 4 }}>
+        <InputLabel id='demo-simple-select-helper-label'>Estado:</InputLabel>
+        <Select
+          labelId='demo-simple-select-helper-label'
+          fullWidth
+          id='estado'
+          value={estado}
+          onChange={handleEstadoChange}
+        >
+          <MenuItem value=''>Selecciona un estado</MenuItem>
+          {estados.map(estado => (
+            <MenuItem key={estado.id} value={estado.id}>
+              {estado.nombre}
+            </MenuItem>
+          ))}
+        </Select>
+      </Box>
+      <Box sx={{ mb: 4 }}>
+        <InputLabel id='demo-simple-select-helper-label2'>Municipio:</InputLabel>
+        <Select
+          labelId='demo-simple-select-helper-label2'
+          fullWidth
+          id='municipio'
+          value={municipio}
+          onChange={handleMunicipioChange}
+        >
           <MenuItem value=''>Selecciona un municipio</MenuItem>
           {estado &&
             municipios[estado].map(municipio => (
@@ -339,7 +353,7 @@ const EstadoMunicipioSelector = () => {
             ))}
         </Select>
       </Box>
-    </div>
+    </Box>
   )
 }
 

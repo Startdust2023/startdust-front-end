@@ -278,22 +278,23 @@ const LoginPage = () => {
                   />
                   <LinkStyled href='/forgot-password'>Olvidaste tu contraseña?</LinkStyled>
                 </Box>
+
+                <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+                  <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
+                    Ingresar
+                  </Button>
+                  <Typography sx={{ color: 'text.secondary', mb: 4 }}>¿Nuevo en la plataforma?</Typography>
+                  <Button
+                    variant='outlined'
+                    fullWidth
+                    onClick={() => {
+                      router.push(routes.register.path)
+                    }}
+                  >
+                    Registrarse
+                  </Button>
+                </Box>
               </form>
-              <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 4 }}>
-                  Ingresar
-                </Button>
-                <Typography sx={{ color: 'text.secondary', mb: 4 }}>¿Nuevo en la plataforma?</Typography>
-                <Button
-                  variant='outlined'
-                  fullWidth
-                  onClick={() => {
-                    router.push(routes.register.path)
-                  }}
-                >
-                  Registrarse
-                </Button>
-              </Box>
             </Box>
           </Box>
         </RightWrapper>
