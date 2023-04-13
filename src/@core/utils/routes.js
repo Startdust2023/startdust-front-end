@@ -14,6 +14,10 @@ const routes = {
   generateRecipe: {
     path: '/generate-recipe',
     name: 'Generar Receta'
+  },
+  ScheduleAppointment: {
+    path: '/schedule-appointment',
+    name: 'Agendar Cita'
   }
 }
 

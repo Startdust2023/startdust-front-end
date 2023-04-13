@@ -1,5 +1,6 @@
 // ** React Imports
 import { useState } from 'react'
+import * as React from 'react'
 
 // ** Next Import
 import Link from 'next/link'
@@ -12,8 +13,13 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import InputLabel from '@mui/material/InputLabel'
 import IconButton from '@mui/material/IconButton'
+import Card from '@mui/material/Card'
+import SelectMunicipio from 'src/@core/components/SelectMunicipio'
 import Box from '@mui/material/Box'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
 import FormControl from '@mui/material/FormControl'
+import FormLabel from '@mui/material/FormLabel'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import { styled, useTheme } from '@mui/material/styles'
@@ -98,7 +104,6 @@ const Register = () => {
             alignItems: 'center',
             borderRadius: '20px',
             justifyContent: 'center',
-
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >
@@ -127,17 +132,15 @@ const Register = () => {
               <Typography sx={{ color: 'text.secondary' }}>Registrese para disfrutar de mas!</Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
-              <TextField
-                autoFocus
-                fullWidth
-                sx={{ mb: 4 }}
-                label='Username'
-                placeholder='Carlos Cigarroa o Erik Aban'
-              />
+              <TextField autoFocus fullWidth sx={{ mb: 4 }} label='Nombre (s)' placeholder='Carlos o Erik' />
+              <TextField autoFocus fullWidth sx={{ mb: 4 }} label='Apellido (s)' placeholder='Cigarroa o Aban' />
               <TextField fullWidth label='Email' sx={{ mb: 4 }} placeholder='user@email.com' />
               <FormControl fullWidth>
-                <InputLabel htmlFor='auth-login-v2-password'>Password</InputLabel>
+                <InputLabel htmlFor='auth-login-v2-password' autoFocus sx={{ mb: 4 }}>
+                  Password
+                </InputLabel>
                 <OutlinedInput
+                  sx={{ mb: 4 }}
                   label='Password'
                   id='auth-login-v2-password'
                   type={showPassword ? 'text' : 'password'}
@@ -154,7 +157,28 @@ const Register = () => {
                   }
                 />
               </FormControl>
-
+              <TextField
+                autoFocus
+                fullWidth
+                sx={{ mb: 4 }}
+                label='Telefono'
+                placeholder='+52 987 6787 9788'
+                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+              />
+              <SelectMunicipio sx={{ mb: 4 }} />
+              <FormLabel id='demo-radio-buttons-group-label'>Genero</FormLabel>
+              <RadioGroup
+                sx={{ mb: 4 }}
+                aria-labelledby='demo-radio-buttons-group-label'
+                defaultValue='none'
+                name='radio-buttons-group'
+              >
+                <FormControlLabel value='Femenino' control={<Radio />} label='Femenino' />
+                <FormControlLabel value='Masculino' control={<Radio />} label='Masculino' />
+                <FormControlLabel value='No binario' control={<Radio />} label='No binario' />
+                <FormControlLabel value='Otro' control={<Radio />} label='Otro' />
+                <FormControlLabel value='Prefiero no responder' control={<Radio />} label='Prefiero no responder' />
+              </RadioGroup>
               <FormControlLabel
                 control={<Checkbox />}
                 sx={{ mb: 4, mt: 1.5, '& .MuiFormControlLabel-label': { fontSize: '0.875rem' } }}

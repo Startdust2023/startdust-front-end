@@ -4,7 +4,7 @@ import { Typography } from '@mui/material'
 import MenuItem from '@mui/material/MenuItem'
 import Box from '@mui/material/Box'
 
-const EstadoMunicipioSelector = () => {
+const EstadoMunicipioSelector = ({ estado, handleEstadoChange, municipio, handleMunicipioChange }) => {
   // Datos de estados y municipios de la República Mexicana
   const estados = [
     { id: 'Aguascalientes', nombre: 'Aguascalientes' },
@@ -298,21 +298,6 @@ const EstadoMunicipioSelector = () => {
     Veracruz: [],
     Yucatán: [],
     Zacatecas: []
-  }
-
-  // Estado y municipio seleccionados
-  const [estado, setEstado] = useState('')
-  const [municipio, setMunicipio] = useState('')
-
-  // Manejar cambios en el selector de estado
-  const handleEstadoChange = event => {
-    setEstado(event.target.value)
-    setMunicipio('') // Reiniciar el municipio seleccionado al cambiar de estado
-  }
-
-  // Manejar cambios en el selector de municipio
-  const handleMunicipioChange = event => {
-    setMunicipio(event.target.value)
   }
 
   return (
