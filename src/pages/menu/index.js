@@ -5,13 +5,15 @@ import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 import { CustomRoutesView } from 'src/@core/components/custom-routes-view'
 import routes from 'src/@core/utils/routes'
-import { Button, FormControl } from '@mui/material'
+import { Button, Collapse, FormControl } from '@mui/material'
 import Box from '@mui/material/Box'
 import { MenuItem } from '@mui/material'
 import { Chip } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { InputLabel } from '@mui/material'
 import { Select } from '@mui/material'
+import CardMedia from '@mui/material/CardMedia'
+import ViewRecipe from 'src/views/pages/generare-recipe/ViewRecipe'
 import {
   recetas,
   colors,
@@ -19,29 +21,19 @@ import {
   alimentosOrigenVegetal,
   alimentosGrasos
 } from 'src/@core/utils/constants'
-import CardMedia from '@mui/material/CardMedia'
-import ViewRecipe from 'src/views/pages/generare-recipe/ViewRecipe'
-
+import { CardActions } from '@mui/material'
+import IconButton from '@mui/material/IconButton'
+// ** Icon Imports
+import Icon from 'src/@core/components/icon'
 const GenerateRecipe = () => {
+  const [openRecipe, setOpenRecipe] = useState(false)
+  const [itemSelected, setItemSelected] = useState(null)
+  const [openDesayunos, setOpenDesayunos] = useState(false)
+
   const [vegetal, setVegetal] = useState([])
   const [animal, setAnimal] = useState([])
   const [grasos, setGrasos] = useState([])
 
-  const [openRecipe, setOpenRecipe] = useState(false)
-  const [itemSelected, setItemSelected] = useState(null)
-
-  const [viewRecipe, setViewRecipe] = useState(false)
-
-  useEffect(() => {
-    setViewRecipe(false)
-  }, [])
-
-  const handleView = () => {
-    setViewRecipe(true)
-  }
-  const hangleRecipe = () => {
-    setOpenRecipe(false)
-  }
   const handleChangeAnimal = event => {
     setAnimal(event.target.value)
   }
@@ -50,6 +42,14 @@ const GenerateRecipe = () => {
   }
   const handleChangeGrasos = event => {
     setGrasos(event.target.value)
+  }
+
+  const handleDesayuno = () => {
+    setOpenDesayunos(!openDesayunos)
+  }
+
+  const hangleRecipe = () => {
+    setOpenRecipe(false)
   }
 
   const ItemRecipe = ({ item }) => {
@@ -77,13 +77,12 @@ const GenerateRecipe = () => {
   return (
     <Grid container spacing={6}>
       <Grid item xs={12}>
-        <CustomRoutesView routes={[routes.home, routes.generateRecipe]} />
+        <CustomRoutesView routes={[routes.home, routes.menu]} />
       </Grid>
       <Grid item xs={12}>
         <Card sx={{ p: 4, border: 2, borderColor: colors.green }}>
           <Typography align='justify'>
-            A continuación se presentan distintos grupos de alimentos y los alimentos pertenencientes a cada uno de
-            ellos. Selecciona los alimentos con los que cuentas para poder generar una receta especialmente para ti.
+            Este es su menú del dia, que fue recomendado por nutriologos en base a sus necesidades y sus gustos
           </Typography>
         </Card>
       </Grid>
@@ -172,29 +171,139 @@ const GenerateRecipe = () => {
               </FormControl>
             </Grid>
             <Grid item xs={12} container sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button
-                onClick={() => {
-                  handleView()
-                }}
-                variant='contained'
-              >
-                Generar Recetas
-              </Button>
+              <Button variant='contained'>Generar Recetas</Button>
             </Grid>
           </Grid>
         </Card>
       </Grid>
-      {viewRecipe ? (
-        <Grid item xs={12} container spacing={4}>
-          {recetas.map(item => {
-            return (
-              <Grid item xs={6} sm={4}>
-                <ItemRecipe item={item} />
-              </Grid>
-            )
-          })}
-        </Grid>
-      ) : null}
+      <Grid item xs={12}>
+        <Card sx={{ p: 6, minHeight: 100 }}>
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <Card>
+                <CardActions className='card-action-dense'>
+                  <Box
+                    sx={{
+                      mt: 2,
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                    onClick={handleDesayuno}
+                  >
+                    <Typography variant='h6' sx={{ mb: 2 }}>
+                      Desayuno
+                    </Typography>
+                    <IconButton size='small'>
+                      <Icon fontSize='1.875rem' icon={openDesayunos ? 'tabler:chevron-up' : 'tabler:chevron-down'} />
+                    </IconButton>
+                  </Box>
+                </CardActions>
+                <Collapse in={openDesayunos}>
+                  <Grid container spacing={4}>
+                    {recetas.map(item => {
+                      return (
+                        <Grid item xs={6} sm={4}>
+                          <ItemRecipe item={item} />
+                        </Grid>
+                      )
+                    })}
+                  </Grid>
+                </Collapse>
+              </Card>
+            </Grid>
+            <Grid item xs={12}>
+              <Card>
+                <CardActions className='card-action-dense'>
+                  <Box
+                    sx={{
+                      mt: 2,
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <Typography variant='h6' sx={{ mb: 2 }}>
+                      Merienda de la mañana
+                    </Typography>
+                    <IconButton size='small'>
+                      <Icon fontSize='1.875rem' icon={'tabler:chevron-down'} />
+                    </IconButton>
+                  </Box>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={12}>
+              <Card>
+                <CardActions className='card-action-dense'>
+                  <Box
+                    sx={{
+                      mt: 2,
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <Typography variant='h6' sx={{ mb: 2 }}>
+                      Almerzo
+                    </Typography>
+                    <IconButton size='small'>
+                      <Icon fontSize='1.875rem' icon={'tabler:chevron-down'} />
+                    </IconButton>
+                  </Box>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={12}>
+              <Card>
+                <CardActions className='card-action-dense'>
+                  <Box
+                    sx={{
+                      mt: 2,
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <Typography variant='h6' sx={{ mb: 2 }}>
+                      Merienda de la tarde
+                    </Typography>
+                    <IconButton size='small'>
+                      <Icon fontSize='1.875rem' icon={'tabler:chevron-down'} />
+                    </IconButton>
+                  </Box>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={12}>
+              <Card>
+                <CardActions className='card-action-dense'>
+                  <Box
+                    sx={{
+                      mt: 2,
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <Typography variant='h6' sx={{ mb: 2 }}>
+                      Cena
+                    </Typography>
+                    <IconButton size='small'>
+                      <Icon fontSize='1.875rem' icon={'tabler:chevron-down'} />
+                    </IconButton>
+                  </Box>
+                </CardActions>
+              </Card>
+            </Grid>
+          </Grid>
+        </Card>
+      </Grid>
       {itemSelected ? <ViewRecipe item={itemSelected} open={openRecipe} toggle={hangleRecipe} /> : null}
     </Grid>
   )

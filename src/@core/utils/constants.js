@@ -368,4 +368,87 @@ export const municipios = {
   Zacatecas: []
 }
 
+export const recetas = [
+  {
+    name: 'Avena con Manzana',
+    description:
+      'Calorías 157, Carbohidratos 34 g, Fibra Dietética 4 g, Proteínas 3 g, Grasa Total 1 g, Grasa Saturada 0 g, Grasa Trans 0 g, Colesterol 0 mg, Sodio 78 mg',
+    ingredient:
+      '1¾ tazas de jugo de manzana 100% natural, 1 taza de avena de cocimiento rápido, 1 manzana grande, sin las semillas y cortada en trozos pequeños, ½ cucharadita de canela molida (ground cinnamon), 1 ⁄8 cucharadita de sal (opcional)',
+    instruccions:
+      'En un tazón mediano para horno de microondas, mezcle todos los ingredientes. Coloque el recipiente sin tapadera en el horno de microondas y cocine a alta potenica durante 2 minutos aproximadamente. Mezcle y deje enfriar durante 1 minuto antes de servir.',
+    image: '/images/pages/recipe/avena-con-manzana.jpg'
+  },
+  {
+    name: 'Desayuno tropical',
+    description:
+      'Calorías 151, Carbohidratos 35 g, Fibra Dietética 2 g, Proteínas 3 g, Grasa Total 1 g, Grasa Saturada 1 g, Grasa Trans 0 g, Colesterol 3 mg, Sodio 31 mg',
+    instruccions:
+      'Mezcle todos los ingredientes en el vaso de una licuadora. Licúe hasta que la mezcla adquiera una textura cremosa. Sírvalo en vasos individuales.',
+    ingredient:
+      '1 mango, pelado, sin semilla y cortado en trocitos, 1 plátano grande, pelado y cortado en rebanadas 1 taza de trozos de piña, con el jugo, ¾ taza de helado de yogur de vainilla, 1 taza de cubos de hielo',
+    image: '/images/pages/recipe/avena-con-manzana.jpg'
+  },
+  {
+    name: 'Panqueques de fresa con plátano',
+    description:
+      'Calorías 109, Carbohidratos 24 g, Fibra Dietética 2 g, Proteínas 2 g, Grasa Total 1 g, Grasa Saturada 0 g, Grasa Trans 0 g, Colesterol 3 mg, Sodio 182 mg',
+    instruccions: `1. Caliente el horno a 450°F. 
+    2. Con una brocha, unte ligeramente con aceite las tortillas por ambos lados y póngalas en una charola para horno. Hornee durante 5 a 10 minutos o hasta que las orillas de las tortillas estén crujientes y comiencen a dorarse. Retírelas del horno y déjelas a un lado. 
+    3. Rocíe un sartén grande con aceite en aerosol para cocinar. 
+    4. Agregue el substituto de huevo en el sartén. Cocine a fuego medio por 2 ó 3 minutos hasta que el huevo esté bien cocido. 
+    5. Ponga cantidades iguales de huevo en cada tortilla y espolvoree con ½ cucharada de queso. 
+    6. Cocine en la parrilla del horno en “Broil” unos 2 minutos, hasta que el queso se derrita. Con una cuchara, ponga ½ taza de Pico de Gallo sobre cada tortilla y espolvoréela con pimienta negra molida. Sírvalo caliente.
+    `,
+    ingredient: `1 tortilla por porción. 
+    Tiempo de preparación: 15 minutos 
+    Tiempo de cocimiento: 15 minutos 
+    Ingredientes: 
+    4 tortillas de maíz (de 6 pulgadas) 
+    ½ cucharada de aceite vegetal aceite en aerosol para cocinar 
+    1½ tazas de substituto de huevo 
+    2 cucharadas de queso rallado Cheddar o Monterey Jack 
+    2 tazas de Pico de Gallo
+    1/8 cucharadita de pimienta negra molida (ground black pepper) 
+    `,
+    image: '/images/pages/recipe/panqueque-fresa-platano.jpg'
+  },
+  {
+    name: 'Ensalada verde de aguacate',
+    description: `Calorías 78, Carbohidratos 9 g, Fibra Dietética 4 g, Proteínas 2 g, Grasa Total 5 g, Grasa Saturada 1 g, Grasa Trans 0 g, Colesterol 0 mg, Sodio 222 mg`,
+    ingredient: `1½ tazas por porción. 
+    Tiempo de preparación: 20 minutos 
+    Ingredientes 6 tazas de vegetales surtidos de hoja cortados 
+    3 tomates medianos, picados 
+    5 cebollas verdes, picadas 
+    1 pepino mediano, pelado y picado 
+    2 cucharadas de jugo de limón 
+    1 ⁄3 cucharadita de ajo en polvo (garlic powder) 
+    ½ cucharadita de pimienta negra molida (ground black pepper) 
+    ½ cucharadita de sal 
+    1 aguacate grande, pelado 
+    `,
+    instruccions: `1. Mezcle los vegetales de hoja, el tomate, la cebolla y el pepino en una ensaladera. 
+    2. En un tazón pequeño, mezcle el jugo de limón, el ajo en polvo, la pimienta negra molida y la sal. Agregue sobre la ensalada y mezcle. 
+    3. Corte el aguacate por la mitad, a lo largo. Retire el hueso y la cáscara. Corte trozos delgados de aproximadamente 1 ⁄8 de pulgada de grosor. 
+    4. Coloque los trozos de aguacate sobre la ensalada y sirva al momento
+    `,
+    image: '/images/pages/recipe/ensalada-verde-aguacate.jpg'
+  }
+]
+
+export const clinicas = [
+  {
+    name: 'Clínica Guadalajara Américas',
+    adress: 'Av. Américas, #166, Entre Av. México Y Reforma, Colonia Ladrón De Guevara. C.P. 44600',
+    tel: '(33) 36 15 3168',
+    image: '/images/clinicas/salud-digna-americas.jpg'
+  },
+  {
+    name: 'Clínica Circunvalación',
+    adress: 'Avenida Circunvalación Dr. Atl #571 Colonia Monumental, Guadalajara, Jalisco, C.P. 44320',
+    tel: '(333) 6137 402',
+    image: '/images/clinicas/salud-digna-2.png'
+  }
+]
 export default constants

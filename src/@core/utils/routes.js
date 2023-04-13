@@ -18,6 +18,14 @@ const routes = {
   ScheduleAppointment: {
     path: '/schedule-appointment',
     name: 'Agendar Cita'
+  },
+  menu: {
+    path: '/menu',
+    name: 'Menú Personalizado'
+  },
+  history: {
+    path: '/history',
+    name: 'Mi Historial'
   }
 }
 

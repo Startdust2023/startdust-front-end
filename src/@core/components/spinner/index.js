@@ -20,6 +20,17 @@ const ImgSpinner = styled('img')(({ theme }) => ({
   }
 }))
 
+const LogoAplicacion = styled('img')(({ theme }) => ({
+  [theme.breakpoints.up('xs')]: {
+    height: 200,
+    width: 'auto'
+  },
+  [theme.breakpoints.up('sm')]: {
+    height: 300,
+    width: 'auto'
+  }
+}))
+
 const FallbackSpinner = ({ sx }) => {
   // ** Hook
   const theme = useTheme()
@@ -35,6 +46,7 @@ const FallbackSpinner = ({ sx }) => {
         ...sx
       }}
     >
+      <LogoAplicacion src={'/images/CoraCierre.png'} />
       <CircularProgress disableShrink sx={{ mt: 6 }} />
     </Box>
   )

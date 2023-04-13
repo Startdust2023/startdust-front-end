@@ -9,7 +9,7 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import Box from '@mui/material/Box'
 import { FormControl } from '@mui/material'
-import { estados, municipios, colors } from 'src/@core/utils/constants'
+import { estados, municipios, colors, clinicas } from 'src/@core/utils/constants'
 
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker'
 
@@ -21,12 +21,15 @@ import { styled, useTheme } from '@mui/material/styles'
 import { Button } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 
+import { CustomRoutesView } from 'src/@core/components/custom-routes-view'
+
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
+import { toast } from 'react-hot-toast'
+import routes from 'src/@core/utils/routes'
 
 const ImgClinic = styled('img')(({ theme }) => ({
-  height: 50,
-  width: 50,
+  width: 100,
   m: 2
 }))
 
@@ -55,15 +58,18 @@ const ScheduleAppointment = () => {
     return (
       <Card>
         <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Grid item xs={3}>
+          <Grid item xs={3} container sx={{ display: 'flex', alignItems: 'center' }}>
             <ImgClinic src={item.image} />
           </Grid>
-          <Grid item xs={6} container>
+          <Grid item xs={8} container spacing={2}>
             <Grid item xs={12}>
-              <Typography>{item.name}</Typography>
+              <Typography sx={{ fontWeight: 'bold' }}>{item.name}</Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography>{item.adress}</Typography>
+              <Typography>Dirección: {item.adress}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography>Teléfono: {item.tel}</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -76,6 +82,7 @@ const ScheduleAppointment = () => {
               alignItems: 'center',
               justifyContent: 'space-between'
             }}
+            onClick={handleClick}
           >
             <Button onClick={handleClick}>Agendar Cita</Button>
             <IconButton size='small' onClick={handleClick}>
@@ -86,11 +93,19 @@ const ScheduleAppointment = () => {
         <Collapse in={collapse}>
           <Divider sx={{ m: '0 !important' }} />
           <CardContent>
-            <Box>
+            <Box sx={{ textAlign: 'center' }}>
               <Typography variant='h7'>Seleccione la fecha y la hora de la cita</Typography>
               <Box sx={{ my: 5 }}>
                 <DateTimePicker label='Fecha y Hora' sx={{ width: '100%' }} />
               </Box>
+              <Button
+                variant='contained'
+                onClick={() => {
+                  toast.success('Cita agendada correctamente')
+                }}
+              >
+                Aceptar
+              </Button>
             </Box>
           </CardContent>
         </Collapse>
@@ -100,7 +115,9 @@ const ScheduleAppointment = () => {
 
   return (
     <Grid container spacing={6}>
-      <Grid item xs={12}></Grid>
+      <Grid item xs={12}>
+        <CustomRoutesView routes={[routes.home, routes.ScheduleAppointment]} />
+      </Grid>
       <Grid item xs={12}>
         <Card sx={{ p: 4, border: 2, borderColor: colors.green }}>
           <Typography align='justify' sx={{ mb: 4 }}>
@@ -154,21 +171,19 @@ const ScheduleAppointment = () => {
         </Card>
       </Grid>
       <Grid item xs={12}>
-        <Card sx={{ p: 6 }}>
-          {municipio !== '' && estado !== '' ? (
-            <Box>
-              <DatePicker label='Basic date picker' />
-            </Box>
-          ) : null}
-
-          {ItemClinicas({
-            item: {
-              name: 'receta',
-              adress: 'description 1',
-              image: '/images/pages/home/3.jpg'
-            }
-          })}
-        </Card>
+        {municipio !== '' && estado !== '' ? (
+          <Card sx={{ p: 6 }}>
+            <Grid container spacing={4}>
+              {clinicas.map(item => {
+                return (
+                  <Grid item xs={12} sm={6}>
+                    {ItemClinicas({ item })}
+                  </Grid>
+                )
+              })}
+            </Grid>
+          </Card>
+        ) : null}
       </Grid>
     </Grid>
   )
