@@ -3,6 +3,7 @@ import Select from '@mui/material/Select'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import Box from '@mui/material/Box'
+import FormControl from '@mui/material/FormControl'
 
 const EstadoMunicipioSelector = () => {
   // Datos de estados y municipios de la República Mexicana
@@ -317,9 +318,15 @@ const EstadoMunicipioSelector = () => {
 
   return (
     <Box sx={{ display: 'table-cell' }}>
-      <Box sx={{ display: 'flex', mb: 4, width: '100%' }}>
+      <Box sx={{ mb: 4 }}>
         <InputLabel id='demo-simple-select-helper-label'>Estado:</InputLabel>
-        <Select fullWidth id='estado' value={estado} onChange={handleEstadoChange}>
+        <Select
+          labelId='demo-simple-select-helper-label'
+          fullWidth
+          id='estado'
+          value={estado}
+          onChange={handleEstadoChange}
+        >
           <MenuItem value=''>Selecciona un estado</MenuItem>
           {estados.map(estado => (
             <MenuItem key={estado.id} value={estado.id}>
@@ -328,9 +335,15 @@ const EstadoMunicipioSelector = () => {
           ))}
         </Select>
       </Box>
-      <Box sx={{ display: 'flex', mb: 4, width: '100%' }}>
-        <InputLabel id='demo-simple-select-helper-label'>Municipio:</InputLabel>
-        <Select id='municipio' value={municipio} onChange={handleMunicipioChange}>
+      <Box sx={{ mb: 4 }}>
+        <InputLabel id='demo-simple-select-helper-label2'>Municipio:</InputLabel>
+        <Select
+          labelId='demo-simple-select-helper-label2'
+          fullWidth
+          id='municipio'
+          value={municipio}
+          onChange={handleMunicipioChange}
+        >
           <MenuItem value=''>Selecciona un municipio</MenuItem>
           {estado &&
             municipios[estado].map(municipio => (
