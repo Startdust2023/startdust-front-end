@@ -317,13 +317,15 @@ const EstadoMunicipioSelector = () => {
   }
 
   return (
-    <Box sx={{ display: 'table-cell' }}>
-      <Box sx={{ mb: 4 }}>
-        <InputLabel id='demo-simple-select-helper-label'>Estado:</InputLabel>
+    <>
+      <FormControl fullWidth sx={{ mb: 4 }}>
+        <InputLabel id='select-estado-label'>Estado</InputLabel>
         <Select
-          labelId='demo-simple-select-helper-label'
+          label='Estado'
+          labelId='select-estado-label'
           fullWidth
-          id='estado'
+          id='selecte-estado'
+          MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
           value={estado}
           onChange={handleEstadoChange}
         >
@@ -334,13 +336,15 @@ const EstadoMunicipioSelector = () => {
             </MenuItem>
           ))}
         </Select>
-      </Box>
-      <Box sx={{ mb: 4 }}>
-        <InputLabel id='demo-simple-select-helper-label2'>Municipio:</InputLabel>
+      </FormControl>
+      <FormControl fullWidth sx={{ mb: 4 }}>
+        <InputLabel id='select-municipio-label'>Municipio</InputLabel>
         <Select
-          labelId='demo-simple-select-helper-label2'
+          label='Municipio'
+          labelId='select-municipio-label'
           fullWidth
-          id='municipio'
+          id='select-municipio'
+          MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
           value={municipio}
           onChange={handleMunicipioChange}
         >
@@ -352,8 +356,8 @@ const EstadoMunicipioSelector = () => {
               </MenuItem>
             ))}
         </Select>
-      </Box>
-    </Box>
+      </FormControl>
+    </>
   )
 }
 

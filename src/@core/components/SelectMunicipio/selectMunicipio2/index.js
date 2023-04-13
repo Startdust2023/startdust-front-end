@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Select from '@mui/material/Select'
-import { Typography } from '@mui/material'
+import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import Box from '@mui/material/Box'
+import { FormControl } from '@mui/material'
 
 const EstadoMunicipioSelector = ({ estado, handleEstadoChange, municipio, handleMunicipioChange }) => {
   // Datos de estados y municipios de la República Mexicana
@@ -301,30 +302,51 @@ const EstadoMunicipioSelector = ({ estado, handleEstadoChange, municipio, handle
   }
 
   return (
-    <div>
-      <Typography>Estado:</Typography>
-      <Select id='estado' value={estado} onChange={handleEstadoChange}>
-        <MenuItem value=''>Selecciona un estado</MenuItem>
-        {estados.map(estado => (
-          <MenuItem key={estado.id} value={estado.id}>
-            {estado.nombre}
-          </MenuItem>
-        ))}
-      </Select>
-      <br />
-      <Box sx={{ display: 'flex' }}>
-        <Typography>Municipio:</Typography>
-        <Select id='municipio' value={municipio} onChange={handleMunicipioChange}>
-          <MenuItem value=''>Selecciona un municipio</MenuItem>
-          {estado &&
-            municipios[estado].map(municipio => (
-              <MenuItem key={municipio.id} value={municipio.id}>
-                {municipio.nombre}
+    <Box sx={{ display: 'table-cell' }}>
+      <Box sx={{ mb: 4 }}>
+        <FormControl>
+          <InputLabel id='select-estado-label'>Estado</InputLabel>
+          <Select
+            label='Estado'
+            labelId='select-estado-label'
+            fullWidth
+            id='selecte-estado'
+            MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
+            value={estado}
+            onChange={handleEstadoChange}
+          >
+            <MenuItem value=''>Selecciona un estado</MenuItem>
+            {estados.map(estado => (
+              <MenuItem key={estado.id} value={estado.id}>
+                {estado.nombre}
               </MenuItem>
             ))}
-        </Select>
+          </Select>
+        </FormControl>
       </Box>
-    </div>
+      <Box sx={{ mb: 4 }}>
+        <FormControl>
+          <InputLabel id='select-municipio-label'>Municipio</InputLabel>
+          <Select
+            label='Municipio'
+            labelId='select-municipio-label'
+            fullWidth
+            id='select-municipio'
+            MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
+            value={municipio}
+            onChange={handleMunicipioChange}
+          >
+            <MenuItem value=''>Selecciona un municipio</MenuItem>
+            {estado &&
+              municipios[estado].map(municipio => (
+                <MenuItem key={municipio.id} value={municipio.id}>
+                  {municipio.nombre}
+                </MenuItem>
+              ))}
+          </Select>
+        </FormControl>
+      </Box>
+    </Box>
   )
 }
 
